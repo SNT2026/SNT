@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!-- saved from url=(0050)file:///C:/Users/gelai/Downloads/tasktrack_v1.html -->
+<!-- saved from url=(0043)file:///C:/Users/gelai/Downloads/index.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="./tasktrack_v1_files/xlsx.full.min.js.download"></script>
-<script src="./tasktrack_v1_files/html2canvas.min.js.download"></script>
-<script src="./tasktrack_v1_files/chart.umd.min.js.download"></script>
+<script src="file:///C:/Users/gelai/Downloads/tasktrack_v1_files/xlsx.full.min.js.download"></script>
+<script src="file:///C:/Users/gelai/Downloads/tasktrack_v1_files/html2canvas.min.js.download"></script>
+<script src="file:///C:/Users/gelai/Downloads/tasktrack_v1_files/chart.umd.min.js.download"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -542,7 +542,7 @@
 </div>
 
 <!-- ── GOOGLE SHEETS SETUP BANNER ── -->
-<div id="setup-banner" style="display: none; align-items: center; gap: 16px; padding: 14px 80px; background: rgb(255, 248, 240); border-bottom: 2px solid rgb(224, 120, 48); flex-wrap: wrap;">
+<div id="setup-banner" style="display: flex; align-items: center; gap: 16px; padding: 14px 80px; background: rgb(255, 248, 240); border-bottom: 2px solid rgb(224, 120, 48); flex-wrap: wrap;">
   <div style="font-size:20px">📊</div>
   <div style="flex:1;min-width:200px">
     <div style="font-size:14px;font-weight:700;color:#C06820;margin-bottom:2px">Connect to Google Sheets for team-wide sync</div>
@@ -568,10 +568,10 @@
   </nav>
   <button class="login-btn">Log in</button>
   <div style="display:flex;align-items:center;gap:8px;margin-left:16px">
-    <span id="sync-status" style="font-size: 12px; font-weight: 600; color: rgb(45, 106, 45);">🟢 Synced with Google Sheets</span>
+    <span id="sync-status" style="font-size: 12px; font-weight: 600; color: rgb(192, 64, 48);">🔴 Not connected</span>
     <span id="sync-spinner" style="display: none; font-size: 14px; animation: 1s linear 0s infinite normal none running spin;">⟳</span>
     <button onclick="lockApp()" title="Lock — require PIN for next edit" style="padding:6px 12px;background:transparent;border:1px solid var(--border-light);border-radius:6px;font-size:12px;font-family:Inter,sans-serif;color:var(--muted-text);cursor:pointer">🔒 Lock</button>
-    <button onclick="disconnectSheets()" id="disconnect-btn" style="display: inline-block; padding: 6px 12px; background: transparent; border: 1px solid rgb(232, 229, 224); border-radius: 6px; font-size: 11px; font-family: Inter, sans-serif; color: rgb(107, 107, 107); cursor: pointer;" title="Disconnect Google Sheets">✕ Disconnect</button>
+    <button onclick="disconnectSheets()" id="disconnect-btn" style="display: none; padding: 6px 12px; background: transparent; border: 1px solid rgb(232, 229, 224); border-radius: 6px; font-size: 11px; font-family: Inter, sans-serif; color: rgb(107, 107, 107); cursor: pointer;" title="Disconnect Google Sheets">✕ Disconnect</button>
   </div>
 </header>
 <style>
@@ -675,11 +675,11 @@
   <div class="stat-pills" id="stat-pills">
     <div class="stat-pill"><span class="stat-pill-val">2</span><span class="stat-pill-lbl">Active Brands</span></div>
     <div class="stat-pill"><span class="stat-pill-val">7</span><span class="stat-pill-lbl">Live</span></div>
-    <div class="stat-pill"><span class="stat-pill-val">17,161</span><span class="stat-pill-lbl">Total SKUs</span></div>
-    <div class="stat-pill"><span class="stat-pill-val" style="color:#C06820">66%</span><span class="stat-pill-lbl">Avg Sourcing</span></div>
-    <div class="stat-pill"><span class="stat-pill-val" style="color:#2D4A2D">63%</span><span class="stat-pill-lbl">Avg Listing</span></div>
-    <div class="stat-pill"><span class="stat-pill-val" style="color:#4A4A9A">55%</span><span class="stat-pill-lbl">Avg QA/QC</span></div>
-    <div class="stat-pill"><span class="stat-pill-val">62%</span><span class="stat-pill-lbl">Avg Overall</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">17,491</span><span class="stat-pill-lbl">Total SKUs</span></div>
+    <div class="stat-pill"><span class="stat-pill-val" style="color:#C06820">59%</span><span class="stat-pill-lbl">Avg Sourcing</span></div>
+    <div class="stat-pill"><span class="stat-pill-val" style="color:#2D4A2D">57%</span><span class="stat-pill-lbl">Avg Listing</span></div>
+    <div class="stat-pill"><span class="stat-pill-val" style="color:#4A4A9A">49%</span><span class="stat-pill-lbl">Avg QA/QC</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">55%</span><span class="stat-pill-lbl">Avg Overall</span></div>
   </div>
 
   <div class="tabs">
@@ -697,7 +697,7 @@
         <input type="text" id="search-input" placeholder="Search brands, lister, category..." oninput="renderTable()">
       </div>
       <!-- Advanced Filters Row -->
-      <select id="filter-brand" onchange="renderTable()" style="padding:10px 12px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:8px;font-family:Inter,sans-serif;font-size:13px;font-weight:500;color:var(--primary-text);outline:none;cursor:pointer;min-width:130px"><option value="">All Brands</option><option value="Amerock">Amerock</option><option value="Azur Grande(Tom Duffy)">Azur Grande(Tom Duffy)</option><option value="Bravada">Bravada</option><option value="Dowell">Dowell</option><option value="Floormuffler">Floormuffler</option><option value="Foundation (Tom Duffy)">Foundation (Tom Duffy)</option><option value="Hallmark">Hallmark</option><option value="MSI - new items">MSI - new items</option><option value="Nourison 1of2">Nourison 1of2</option><option value="Nourison 2of2">Nourison 2of2</option><option value="Otto Tile Vanities">Otto Tile Vanities</option><option value="Premier/Reserve Collection (under Big D)">Premier/Reserve Collection (under Big D)</option><option value="Premium Kitchen">Premium Kitchen</option><option value="QuickStep">QuickStep</option><option value="Stanton-Clearance">Stanton-Clearance</option><option value="Versacore/Crescendo Collection (under Big D)">Versacore/Crescendo Collection (under Big D)</option></select>
+      <select id="filter-brand" onchange="renderTable()" style="padding:10px 12px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:8px;font-family:Inter,sans-serif;font-size:13px;font-weight:500;color:var(--primary-text);outline:none;cursor:pointer;min-width:130px"><option value="">All Brands</option><option value="Amerock">Amerock</option><option value="Ardex">Ardex</option><option value="Azur Grande(Tom Duffy)">Azur Grande(Tom Duffy)</option><option value="Bravada">Bravada</option><option value="Dowell">Dowell</option><option value="Floormuffler">Floormuffler</option><option value="Foundation (Tom Duffy)">Foundation (Tom Duffy)</option><option value="Hallmark">Hallmark</option><option value="MSI - new items">MSI - new items</option><option value="Nourison 1of2">Nourison 1of2</option><option value="Nourison 2of2">Nourison 2of2</option><option value="Otto Tile Vanities">Otto Tile Vanities</option><option value="Premier/Reserve Collection (under Big D)">Premier/Reserve Collection (under Big D)</option><option value="Premium Kitchen">Premium Kitchen</option><option value="QuickStep">QuickStep</option><option value="Stanton-Clearance">Stanton-Clearance</option><option value="Traxx">Traxx</option><option value="Versacore/Crescendo Collection (under Big D)">Versacore/Crescendo Collection (under Big D)</option></select>
       <select id="filter-lister" onchange="renderTable()" style="padding:10px 12px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:8px;font-family:Inter,sans-serif;font-size:13px;font-weight:500;color:var(--primary-text);outline:none;cursor:pointer;min-width:130px"><option value="">All Listers</option><option value="Cza">Cza</option><option value="Irene">Irene</option><option value="Anna Mae">Anna Mae</option><option value="Emileen">Emileen</option><option value="Ezzie">Ezzie</option><option value="Jhen">Jhen</option><option value="Rose">Rose</option><option value="Geselle">Geselle</option><option value="Lovely">Lovely</option><option value="Maydee">Maydee</option></select>
       <select id="filter-status-dd" onchange="renderTable()" style="padding:10px 12px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:8px;font-family:Inter,sans-serif;font-size:13px;font-weight:500;color:var(--primary-text);outline:none;cursor:pointer;min-width:120px">
         <option value="">All Statuses</option>
@@ -839,6 +839,54 @@
         </div>
       </td>
     </tr>
+    <tr onclick="openEditModal(3)">
+      <td>
+        <div class="brand-name">Stanton-Clearance</div>
+        <div class="brand-cat">Rugs</div>
+        
+      </td>
+      <td>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+                <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
+                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#5A6A4A;color:#fff">I</div><span style="font-size:11px;white-space:nowrap">Irene</span></div>
+              </div>
+        </div>
+      </td>
+      <td><span class="sku-val">500</span></td>
+      <td><span class="status s-live"><span class="sdot"></span>Live</span></td>
+      <td><span class="priority p-mid">Mid</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Mar 24, 2026</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Mar 30, 2026</span></td>
+      <td>
+        <span class="dom-val dom-cool">5d</span>
+        
+      </td>
+      <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C06820;margin-bottom:3px">100%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#C06820"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#2D4A2D;margin-bottom:3px">100%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#2D4A2D"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#4A4A9A;margin-bottom:3px">100%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#4A4A9A"></div></div>
+  </div></td>
+      <td>
+        <div class="prog-wrap" style="min-width:90px">
+          <div class="prog-label" style="display:flex;align-items:center">100%<span style="font-size:10px;color:var(--muted-text);margin-left:4px">─</span></div>
+          <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#2D4A2D"></div></div>
+        </div>
+      </td>
+      <td onclick="event.stopPropagation()">
+        <div style="display:flex;gap:6px">
+          <button class="act-btn" onclick="openEditModal(3)">Edit</button>
+          <button class="act-btn del-btn" onclick="deleteListing(3)">Del</button>
+        </div>
+      </td>
+    </tr>
     <tr onclick="openEditModal(4)">
       <td>
         <div class="brand-name">Hallmark</div>
@@ -935,6 +983,54 @@
         </div>
       </td>
     </tr>
+    <tr onclick="openEditModal(6)">
+      <td>
+        <div class="brand-name">Bravada</div>
+        <div class="brand-cat">Hardwood Flooring and Accessories</div>
+        
+      </td>
+      <td>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+                <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
+                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#2D4A2D;color:#fff">AM</div><span style="font-size:11px;white-space:nowrap">Anna Mae</span></div>
+              </div>
+        </div>
+      </td>
+      <td><span class="sku-val">426</span></td>
+      <td><span class="status s-live"><span class="sdot"></span>Live</span></td>
+      <td><span class="priority p-mid">Mid</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Mar 31, 2026</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Apr 5, 2026</span></td>
+      <td>
+        <span class="dom-val dom-cool">5d</span>
+        
+      </td>
+      <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C06820;margin-bottom:3px">100%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#C06820"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#2D4A2D;margin-bottom:3px">100%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#2D4A2D"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#4A4A9A;margin-bottom:3px">99%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:99%;background:#4A4A9A"></div></div>
+  </div></td>
+      <td>
+        <div class="prog-wrap" style="min-width:90px">
+          <div class="prog-label" style="display:flex;align-items:center">100%<span style="font-size:10px;color:var(--muted-text);margin-left:4px">─</span></div>
+          <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#2D4A2D"></div></div>
+        </div>
+      </td>
+      <td onclick="event.stopPropagation()">
+        <div style="display:flex;gap:6px">
+          <button class="act-btn" onclick="openEditModal(6)">Edit</button>
+          <button class="act-btn del-btn" onclick="deleteListing(6)">Del</button>
+        </div>
+      </td>
+    </tr>
     <tr onclick="openEditModal(7)">
       <td>
         <div class="brand-name">Dowell</div>
@@ -980,6 +1076,57 @@
         <div style="display:flex;gap:6px">
           <button class="act-btn" onclick="openEditModal(7)">Edit</button>
           <button class="act-btn del-btn" onclick="deleteListing(7)">Del</button>
+        </div>
+      </td>
+    </tr>
+    <tr onclick="openEditModal(8)">
+      <td>
+        <div class="brand-name">QuickStep</div>
+        <div class="brand-cat">Laminates and Floor Accessories</div>
+        <div style="display:flex;align-items:flex-start;gap:4px;margin-top:4px;padding:4px 8px;background:rgba(180,180,180,0.12);border-radius:6px;border-left:3px solid #9A9A9A;max-width:200px">
+          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap;flex-shrink:0">⏸ Reason:</span>
+          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">Ezzie quited 4/4</span>
+        </div>
+      </td>
+      <td>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+                <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
+                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#A8C898;color:#2D2D2D">E</div><span style="font-size:11px;white-space:nowrap">Ezzie</span></div>
+              </div>
+        </div>
+      </td>
+      <td><span class="sku-val">200</span></td>
+      <td><span class="status s-paused"><span class="sdot"></span>Paused</span></td>
+      <td><span class="priority p-mid">Mid</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Mar 31, 2026</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
+      <td>
+        <span class="dom-val dom-cool">11d</span>
+        
+      </td>
+      <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C06820;margin-bottom:3px">100%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#C06820"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#2D4A2D;margin-bottom:3px">80%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:80%;background:#2D4A2D"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+  </div></td>
+      <td>
+        <div class="prog-wrap" style="min-width:90px">
+          <div class="prog-label" style="display:flex;align-items:center">60%<span style="font-size:10px;font-weight:700;color:#C04030;background:rgba(192,64,48,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▼-27%</span></div>
+          <div class="prog-bg"><div class="prog-fill" style="width:60%;background:#E07830"></div></div>
+        </div>
+      </td>
+      <td onclick="event.stopPropagation()">
+        <div style="display:flex;gap:6px">
+          <button class="act-btn" onclick="openEditModal(8)">Edit</button>
+          <button class="act-btn del-btn" onclick="deleteListing(8)">Del</button>
         </div>
       </td>
     </tr>
@@ -1079,13 +1226,64 @@
         </div>
       </td>
     </tr>
+    <tr onclick="openEditModal(11)">
+      <td>
+        <div class="brand-name">MSI - new items</div>
+        <div class="brand-cat"></div>
+        <div style="display:flex;align-items:flex-start;gap:4px;margin-top:4px;padding:4px 8px;background:rgba(180,180,180,0.12);border-radius:6px;border-left:3px solid #9A9A9A;max-width:200px">
+          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap;flex-shrink:0">⏸ Reason:</span>
+          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">prioritized price update</span>
+        </div>
+      </td>
+      <td>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+                <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
+                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#2D4A2D;color:#fff">AM</div><span style="font-size:11px;white-space:nowrap">Anna Mae</span></div>
+              </div>
+        </div>
+      </td>
+      <td><span class="sku-val">1,000</span></td>
+      <td><span class="status s-paused"><span class="sdot"></span>Paused</span></td>
+      <td><span class="priority p-mid">Mid</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Apr 7, 2026</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
+      <td>
+        <span class="dom-val dom-cool">3d</span>
+        <div style="font-size:10px;color:#9A9A9A;margin-top:2px">⏸ 3d paused</div>
+      </td>
+      <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">30%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:30%;background:#C04030"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">20%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:20%;background:#C04030"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+  </div></td>
+      <td>
+        <div class="prog-wrap" style="min-width:90px">
+          <div class="prog-label" style="display:flex;align-items:center">17%<span style="font-size:10px;font-weight:700;color:#C04030;background:rgba(192,64,48,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▼-6%</span></div>
+          <div class="prog-bg"><div class="prog-fill" style="width:17%;background:#C04030"></div></div>
+        </div>
+      </td>
+      <td onclick="event.stopPropagation()">
+        <div style="display:flex;gap:6px">
+          <button class="act-btn" onclick="openEditModal(11)">Edit</button>
+          <button class="act-btn del-btn" onclick="deleteListing(11)">Del</button>
+        </div>
+      </td>
+    </tr>
     <tr onclick="openEditModal(12)">
       <td>
         <div class="brand-name">Foundation (Tom Duffy)</div>
         <div class="brand-cat">Hardwood Flooring</div>
         <div style="display:flex;align-items:flex-start;gap:4px;margin-top:4px;padding:4px 8px;background:rgba(180,180,180,0.12);border-radius:6px;border-left:3px solid #9A9A9A;max-width:200px">
           <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap;flex-shrink:0">⏸ Reason:</span>
-          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">for confirmation w/ vendor if dropped; prioritize MSI price update; improvise trims template</span>
+          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">for confirmation w/ vendor if dropped;price update 1st</span>
         </div>
       </td>
       <td>
@@ -1127,6 +1325,57 @@
         <div style="display:flex;gap:6px">
           <button class="act-btn" onclick="openEditModal(12)">Edit</button>
           <button class="act-btn del-btn" onclick="deleteListing(12)">Del</button>
+        </div>
+      </td>
+    </tr>
+    <tr onclick="openEditModal(13)">
+      <td>
+        <div class="brand-name">Azur Grande(Tom Duffy)</div>
+        <div class="brand-cat">Hardwood Flooring</div>
+        <div style="display:flex;align-items:flex-start;gap:4px;margin-top:4px;padding:4px 8px;background:rgba(180,180,180,0.12);border-radius:6px;border-left:3px solid #9A9A9A;max-width:200px">
+          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap;flex-shrink:0">⏸ Reason:</span>
+          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">dropped per vendor</span>
+        </div>
+      </td>
+      <td>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+                <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
+                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#2D4A2D;color:#fff">AM</div><span style="font-size:11px;white-space:nowrap">Anna Mae</span></div>
+              </div>
+        </div>
+      </td>
+      <td><span class="sku-val">48</span></td>
+      <td><span class="status s-paused"><span class="sdot"></span>Paused</span></td>
+      <td><span class="priority p-mid">Mid</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Apr 8, 2026</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
+      <td>
+        <span class="dom-val dom-cool">2d</span>
+        <div style="font-size:10px;color:#9A9A9A;margin-top:2px">⏸ 3d paused</div>
+      </td>
+      <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#E07830;margin-bottom:3px">50%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:50%;background:#E07830"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">40%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:40%;background:#C04030"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+  </div></td>
+      <td>
+        <div class="prog-wrap" style="min-width:90px">
+          <div class="prog-label" style="display:flex;align-items:center">30%<span style="font-size:10px;font-weight:700;color:#C04030;background:rgba(192,64,48,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▼-20%</span></div>
+          <div class="prog-bg"><div class="prog-fill" style="width:30%;background:#C04030"></div></div>
+        </div>
+      </td>
+      <td onclick="event.stopPropagation()">
+        <div style="display:flex;gap:6px">
+          <button class="act-btn" onclick="openEditModal(13)">Edit</button>
+          <button class="act-btn del-btn" onclick="deleteListing(13)">Del</button>
         </div>
       </td>
     </tr>
@@ -1322,10 +1571,10 @@
         </div>
       </td>
     </tr>
-    <tr onclick="openEditModal(3)">
+    <tr onclick="openEditModal(18)">
       <td>
-        <div class="brand-name">Stanton-Clearance</div>
-        <div class="brand-cat">Rugs</div>
+        <div class="brand-name">Traxx</div>
+        <div class="brand-cat"></div>
         
       </td>
       <td>
@@ -1336,121 +1585,22 @@
               </div>
         </div>
       </td>
-      <td><span class="sku-val">500</span></td>
-      <td><span class="status s-live"><span class="sdot"></span>Live</span></td>
-      <td><span class="priority p-mid">Mid</span></td>
-      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Mar 24, 2026</span></td>
-      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Mar 30, 2026</span></td>
-      <td>
-        <span class="dom-val dom-cool">5d</span>
-        
-      </td>
-      <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C06820;margin-bottom:3px">100%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#C06820"></div></div>
-  </div></td>
-      <td><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#2D4A2D;margin-bottom:3px">100%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#2D4A2D"></div></div>
-  </div></td>
-      <td><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#4A4A9A;margin-bottom:3px">100%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#4A4A9A"></div></div>
-  </div></td>
-      <td>
-        <div class="prog-wrap" style="min-width:90px">
-          <div class="prog-label" style="display:flex;align-items:center">100%<span style="font-size:10px;color:var(--muted-text);margin-left:4px">─</span></div>
-          <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#2D4A2D"></div></div>
-        </div>
-      </td>
-      <td onclick="event.stopPropagation()">
-        <div style="display:flex;gap:6px">
-          <button class="act-btn" onclick="openEditModal(3)">Edit</button>
-          <button class="act-btn del-btn" onclick="deleteListing(3)">Del</button>
-        </div>
-      </td>
-    </tr>
-    <tr onclick="openEditModal(6)">
-      <td>
-        <div class="brand-name">Bravada</div>
-        <div class="brand-cat">Hardwood Flooring and Accessories</div>
-        
-      </td>
-      <td>
-        <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
-                <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
-                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#2D4A2D;color:#fff">AM</div><span style="font-size:11px;white-space:nowrap">Anna Mae</span></div>
-              </div>
-        </div>
-      </td>
-      <td><span class="sku-val">426</span></td>
-      <td><span class="status s-live"><span class="sdot"></span>Live</span></td>
-      <td><span class="priority p-mid">Mid</span></td>
-      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Mar 15, 2025</span></td>
-      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Mar 15, 2025</span></td>
-      <td>
-        <span class="dom-val dom-cool">1d</span>
-        
-      </td>
-      <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C06820;margin-bottom:3px">100%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#C06820"></div></div>
-  </div></td>
-      <td><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#2D4A2D;margin-bottom:3px">100%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#2D4A2D"></div></div>
-  </div></td>
-      <td><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#4A4A9A;margin-bottom:3px">99%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:99%;background:#4A4A9A"></div></div>
-  </div></td>
-      <td>
-        <div class="prog-wrap" style="min-width:90px">
-          <div class="prog-label" style="display:flex;align-items:center">100%<span style="font-size:10px;color:var(--muted-text);margin-left:4px">─</span></div>
-          <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#2D4A2D"></div></div>
-        </div>
-      </td>
-      <td onclick="event.stopPropagation()">
-        <div style="display:flex;gap:6px">
-          <button class="act-btn" onclick="openEditModal(6)">Edit</button>
-          <button class="act-btn del-btn" onclick="deleteListing(6)">Del</button>
-        </div>
-      </td>
-    </tr>
-    <tr onclick="openEditModal(8)">
-      <td>
-        <div class="brand-name">QuickStep</div>
-        <div class="brand-cat">Laminates and Floor Accessories</div>
-        <div style="display:flex;align-items:flex-start;gap:4px;margin-top:4px;padding:4px 8px;background:rgba(180,180,180,0.12);border-radius:6px;border-left:3px solid #9A9A9A;max-width:200px">
-          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap;flex-shrink:0">⏸ Reason:</span>
-          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">Ezzie quited 4/4</span>
-        </div>
-      </td>
-      <td>
-        <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
-                <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
-                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#A8C898;color:#2D2D2D">E</div><span style="font-size:11px;white-space:nowrap">Ezzie</span></div>
-              </div>
-        </div>
-      </td>
-      <td><span class="sku-val">200</span></td>
-      <td><span class="status s-paused"><span class="sdot"></span>Paused</span></td>
-      <td><span class="priority p-mid">Mid</span></td>
-      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Mar 31, 2026</span></td>
+      <td><span class="sku-val">80</span></td>
+      <td><span class="status s-pending"><span class="sdot"></span>Pending</span></td>
+      <td><span class="priority p-low">Low</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td>
-        <span class="dom-val dom-cool">11d</span>
+        <span class="dom-val dom-cool">0d</span>
         
       </td>
       <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C06820;margin-bottom:3px">100%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#C06820"></div></div>
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
   </div></td>
       <td><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#2D4A2D;margin-bottom:3px">80%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:80%;background:#2D4A2D"></div></div>
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
   </div></td>
       <td><div style="min-width:70px">
     <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
@@ -1458,50 +1608,47 @@
   </div></td>
       <td>
         <div class="prog-wrap" style="min-width:90px">
-          <div class="prog-label" style="display:flex;align-items:center">60%<span style="font-size:10px;font-weight:700;color:#C04030;background:rgba(192,64,48,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▼-27%</span></div>
-          <div class="prog-bg"><div class="prog-fill" style="width:60%;background:#E07830"></div></div>
+          <div class="prog-label" style="display:flex;align-items:center">0%</div>
+          <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
         </div>
       </td>
       <td onclick="event.stopPropagation()">
         <div style="display:flex;gap:6px">
-          <button class="act-btn" onclick="openEditModal(8)">Edit</button>
-          <button class="act-btn del-btn" onclick="deleteListing(8)">Del</button>
+          <button class="act-btn" onclick="openEditModal(18)">Edit</button>
+          <button class="act-btn del-btn" onclick="deleteListing(18)">Del</button>
         </div>
       </td>
     </tr>
-    <tr onclick="openEditModal(11)">
+    <tr onclick="openEditModal(19)">
       <td>
-        <div class="brand-name">MSI - new items</div>
+        <div class="brand-name">Ardex</div>
         <div class="brand-cat"></div>
-        <div style="display:flex;align-items:flex-start;gap:4px;margin-top:4px;padding:4px 8px;background:rgba(180,180,180,0.12);border-radius:6px;border-left:3px solid #9A9A9A;max-width:200px">
-          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap;flex-shrink:0">⏸ Reason:</span>
-          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">prioritized price update</span>
-        </div>
+        
       </td>
       <td>
         <div style="display:flex;flex-direction:column;gap:4px">
           <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
                 <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
-                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#2D4A2D;color:#fff">AM</div><span style="font-size:11px;white-space:nowrap">Anna Mae</span></div>
+                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#C06820;color:#fff">R</div><span style="font-size:11px;white-space:nowrap">Rose</span></div>
               </div>
         </div>
       </td>
-      <td><span class="sku-val">1,000</span></td>
-      <td><span class="status s-paused"><span class="sdot"></span>Paused</span></td>
-      <td><span class="priority p-mid">Mid</span></td>
-      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Apr 7, 2026</span></td>
+      <td><span class="sku-val">250</span></td>
+      <td><span class="status s-pending"><span class="sdot"></span>Pending</span></td>
+      <td><span class="priority p-low">Low</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td>
-        <span class="dom-val dom-cool">3d</span>
-        <div style="font-size:10px;color:#9A9A9A;margin-top:2px">⏸ 3d paused</div>
+        <span class="dom-val dom-cool">0d</span>
+        
       </td>
       <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">30%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:30%;background:#C04030"></div></div>
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
   </div></td>
       <td><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">20%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:20%;background:#C04030"></div></div>
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
   </div></td>
       <td><div style="min-width:70px">
     <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
@@ -1509,65 +1656,14 @@
   </div></td>
       <td>
         <div class="prog-wrap" style="min-width:90px">
-          <div class="prog-label" style="display:flex;align-items:center">17%<span style="font-size:10px;font-weight:700;color:#C04030;background:rgba(192,64,48,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▼-6%</span></div>
-          <div class="prog-bg"><div class="prog-fill" style="width:17%;background:#C04030"></div></div>
+          <div class="prog-label" style="display:flex;align-items:center">0%</div>
+          <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
         </div>
       </td>
       <td onclick="event.stopPropagation()">
         <div style="display:flex;gap:6px">
-          <button class="act-btn" onclick="openEditModal(11)">Edit</button>
-          <button class="act-btn del-btn" onclick="deleteListing(11)">Del</button>
-        </div>
-      </td>
-    </tr>
-    <tr onclick="openEditModal(13)">
-      <td>
-        <div class="brand-name">Azur Grande(Tom Duffy)</div>
-        <div class="brand-cat">Hardwood Flooring</div>
-        <div style="display:flex;align-items:flex-start;gap:4px;margin-top:4px;padding:4px 8px;background:rgba(180,180,180,0.12);border-radius:6px;border-left:3px solid #9A9A9A;max-width:200px">
-          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap;flex-shrink:0">⏸ Reason:</span>
-          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">dropped per vendor</span>
-        </div>
-      </td>
-      <td>
-        <div style="display:flex;flex-direction:column;gap:4px">
-          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
-                <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
-                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#2D4A2D;color:#fff">AM</div><span style="font-size:11px;white-space:nowrap">Anna Mae</span></div>
-              </div>
-        </div>
-      </td>
-      <td><span class="sku-val">48</span></td>
-      <td><span class="status s-paused"><span class="sdot"></span>Paused</span></td>
-      <td><span class="priority p-mid">Mid</span></td>
-      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Apr 8, 2026</span></td>
-      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
-      <td>
-        <span class="dom-val dom-cool">2d</span>
-        <div style="font-size:10px;color:#9A9A9A;margin-top:2px">⏸ 3d paused</div>
-      </td>
-      <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#E07830;margin-bottom:3px">50%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:50%;background:#E07830"></div></div>
-  </div></td>
-      <td><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">40%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:40%;background:#C04030"></div></div>
-  </div></td>
-      <td><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
-  </div></td>
-      <td>
-        <div class="prog-wrap" style="min-width:90px">
-          <div class="prog-label" style="display:flex;align-items:center">30%<span style="font-size:10px;font-weight:700;color:#C04030;background:rgba(192,64,48,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▼-20%</span></div>
-          <div class="prog-bg"><div class="prog-fill" style="width:30%;background:#C04030"></div></div>
-        </div>
-      </td>
-      <td onclick="event.stopPropagation()">
-        <div style="display:flex;gap:6px">
-          <button class="act-btn" onclick="openEditModal(13)">Edit</button>
-          <button class="act-btn del-btn" onclick="deleteListing(13)">Del</button>
+          <button class="act-btn" onclick="openEditModal(19)">Edit</button>
+          <button class="act-btn del-btn" onclick="deleteListing(19)">Del</button>
         </div>
       </td>
     </tr></tbody>
@@ -1577,7 +1673,7 @@
       <div class="exp-hist-title">Export History</div>
       <div class="exp-log" id="export-log">
         <div class="no-exp" id="no-exp-msg" style="display: none;">No exports yet — click "Export XLSX" to generate your first report.</div>
-      <div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_000254.xlsx</div><div class="exp-ts">Exported: 2026-04-14 00:02:54</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-13_202425.xlsx</div><div class="exp-ts">Exported: 2026-04-13 20:24:25</div></div><div class="exp-count">15 brands · 16,909 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-13_181427.xlsx</div><div class="exp-ts">Exported: 2026-04-13 18:14:27</div></div><div class="exp-count">15 brands · 16,909 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-09_090727.xlsx</div><div class="exp-ts">Exported: 2026-04-09 09:07:27</div></div><div class="exp-count">15 brands · 16,909 SKUs</div></div></div>
+      <div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_012821.xlsx</div><div class="exp-ts">Exported: 2026-04-14 01:28:21</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_011332.xlsx</div><div class="exp-ts">Exported: 2026-04-14 01:13:32</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_011142.xlsx</div><div class="exp-ts">Exported: 2026-04-14 01:11:42</div></div><div class="exp-count">17 brands · 0 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_010600.xlsx</div><div class="exp-ts">Exported: 2026-04-14 01:06:00</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_004010.xlsx</div><div class="exp-ts">Exported: 2026-04-14 00:40:10</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_000254.xlsx</div><div class="exp-ts">Exported: 2026-04-14 00:02:54</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-13_202425.xlsx</div><div class="exp-ts">Exported: 2026-04-13 20:24:25</div></div><div class="exp-count">15 brands · 16,909 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-13_181427.xlsx</div><div class="exp-ts">Exported: 2026-04-13 18:14:27</div></div><div class="exp-count">15 brands · 16,909 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-09_090727.xlsx</div><div class="exp-ts">Exported: 2026-04-09 09:07:27</div></div><div class="exp-count">15 brands · 16,909 SKUs</div></div></div>
     </div>
   </div>
 
@@ -1598,22 +1694,42 @@
             <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Geselle</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
           </div>
       </div></div><div class="kcol">
-      <div class="kcol-head"><span class="kcol-title">PENDING</span><span class="kcol-cnt">0</span></div>
+      <div class="kcol-head"><span class="kcol-title">PENDING</span><span class="kcol-cnt">2</span></div>
       <div class="kcol-cards">
-        <div style="text-align:center;padding:16px;font-size:12px;color:var(--muted-text)">No brands</div>
+        
+          <div class="kcard" onclick="openEditModal(18)">
+            <div class="kcard-name">Traxx</div>
+            <div class="kcard-sku">80 SKUs</div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Irene</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
+          </div>
+          <div class="kcard" onclick="openEditModal(19)">
+            <div class="kcard-name">Ardex</div>
+            <div class="kcard-sku">250 SKUs</div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Rose</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
+          </div>
       </div></div><div class="kcol">
-      <div class="kcol-head"><span class="kcol-title">ONBOARDING</span><span class="kcol-cnt">2</span></div>
+      <div class="kcol-head"><span class="kcol-title">ONBOARDING</span><span class="kcol-cnt">4</span></div>
       <div class="kcol-cards">
         
           <div class="kcard" onclick="openEditModal(14)">
             <div class="kcard-name">Premium Kitchen</div>
             <div class="kcard-sku">600 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Rose</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Rose, Cza</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
           </div>
           <div class="kcard" onclick="openEditModal(15)">
             <div class="kcard-name">Floormuffler</div>
             <div class="kcard-sku">10 SKUs</div>
             <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Irene</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
+          </div>
+          <div class="kcard" onclick="openEditModal(16)">
+            <div class="kcard-name">Premier/Reserve Collection (under Big D)</div>
+            <div class="kcard-sku">112 SKUs</div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Cza</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
+          </div>
+          <div class="kcard" onclick="openEditModal(17)">
+            <div class="kcard-name">Versacore/Crescendo Collection (under Big D)</div>
+            <div class="kcard-sku">140 SKUs</div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Cza</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
           </div>
       </div></div><div class="kcol">
       <div class="kcol-head"><span class="kcol-title">LIVE</span><span class="kcol-cnt">7</span></div>
@@ -2138,7 +2254,7 @@
           </div>
 
         </div>
-        <div id="modal-overall" style="margin-top:12px;font-size:12px;color:var(--muted-text);padding:8px 12px;background:var(--input-bg);border-radius:7px">Overall: <b style="color:#C04030">17%</b> <span style="color:var(--muted-text)">· Sourcing 30% · Listing 20% · QA/QC 0%</span></div>
+        <div id="modal-overall" style="margin-top:12px;font-size:12px;color:var(--muted-text);padding:8px 12px;background:var(--input-bg);border-radius:7px">Overall: <b style="color:#C04030">49%</b> <span style="color:var(--muted-text)">· Sourcing 50% · Listing 49% · QA/QC 49%</span></div>
       </div>
 
       <div class="fg full"><label>Notes</label><textarea id="f-notes" placeholder="Any additional notes..."></textarea></div>
