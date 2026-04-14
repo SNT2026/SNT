@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- saved from url=(0043)file:///C:/Users/gelai/Downloads/index.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="file:///C:/Users/gelai/Downloads/tasktrack_v1_files/xlsx.full.min.js.download"></script>
-<script src="file:///C:/Users/gelai/Downloads/tasktrack_v1_files/html2canvas.min.js.download"></script>
-<script src="file:///C:/Users/gelai/Downloads/tasktrack_v1_files/chart.umd.min.js.download"></script>
+<script src="./index_files/xlsx.full.min.js"></script>
+<script src="./index_files/html2canvas.min.js"></script>
+<script src="./index_files/chart.umd.min.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -138,21 +138,6 @@
   .avatar:first-child { margin-left: 0; }
   .social-text { font-size: 14px; color: var(--secondary-text); }
   .social-text b { font-weight: 600; color: var(--primary-text); }
-
-  /* ── DEMO LABEL ── */
-  .demo-section {
-    max-width: 1080px; margin: 20px auto 0;
-    position: relative; padding: 0 0 40px;
-  }
-  .demo-label {
-    position: absolute; top: -28px; right: 0;
-    display: flex; align-items: center; gap: 8px; z-index: 10;
-  }
-  .demo-arrow { width: 48px; height: 32px; }
-  .demo-label-text {
-    font-size: 17px; font-weight: 500; color: var(--demo-text);
-    font-style: italic;
-  }
 
   /* ── BROWSER WINDOW ── */
   .browser {
@@ -296,6 +281,9 @@
   tbody tr:last-child { border-bottom: none; }
   tbody tr:hover { background: #FAFAF7; }
   td { padding: 14px 16px; vertical-align: middle; white-space: nowrap; }
+  td:first-child { white-space: normal; min-width: 160px; max-width: 240px; }
+  .pause-badge { display:block; margin-top:4px; padding:4px 8px; background:rgba(180,180,180,0.12); border-radius:6px; border-left:3px solid #9A9A9A; white-space:normal; word-break:break-word; }
+  .pause-badge-reason { font-size:10px; color:#6B6B6B; line-height:1.4; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
 
   .brand-name { font-weight: 600; color: var(--primary-text); }
   .brand-cat { font-size: 12px; color: var(--muted-text); margin-top: 2px; }
@@ -579,107 +567,18 @@
 #setup-banner input:focus { border-color:#E07830 !important; }
 </style>
 
-<!-- ── HERO ── -->
-<section class="hero">
-  <div class="headline-wrap">
-    <div class="headline-highlight"></div>
-    <h1 class="headline">Listing team,<br>tracked fast.</h1>
-  </div>
-  <p class="subheadline">Manage your Shopify brand listings, monitor SKU progress, and keep your team aligned — all in one place.</p>
-  <div class="form-row">
-    <div class="input-wrap">
-      <svg class="globe-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-        <circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-      </svg>
-      <input type="text" placeholder="brand-name.com">
-    </div>
-    <button class="submit-btn">
-      Add my brand
-      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-    </button>
-  </div>
-  <div class="social-pill">
-    <div class="avatar-stack">
-      <div class="avatar" style="background:#3D4A3A;margin-left:0">Cz</div>
-      <div class="avatar" style="background:#5A6A4A">Ir</div>
-      <div class="avatar" style="background:#A8C898;color:#2D4A2D">AM</div>
-      <div class="avatar" style="background:#E07830">Em</div>
-      <div class="avatar" style="background:#2D4A2D">Ez</div>
-    </div>
-    <span class="social-text">Trusted by <b>10</b> listing specialists</span>
-  </div>
-</section>
-
-<!-- ── DEMO BROWSER ── -->
-<div style="padding: 0 80px">
-<div class="demo-section">
-  <div class="demo-label">
-    <svg class="demo-arrow" viewBox="0 0 60 40" fill="none">
-      <path d="M55 5 Q40 5 30 20 Q20 35 10 35" stroke="#5A6A4A" stroke-width="2" stroke-linecap="round" fill="none"></path>
-      <path d="M6 30 L10 36 L16 32" stroke="#5A6A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
-    </svg>
-    <span class="demo-label-text">Live tracker</span>
-  </div>
-
-  <div class="browser">
-    <div class="browser-chrome">
-      <div class="window-dots">
-        <div class="dot dot-r"></div>
-        <div class="dot dot-y"></div>
-        <div class="dot dot-g"></div>
-      </div>
-      <div class="url-bar">tasktrack.app / <b>listing-team</b></div>
-    </div>
-
-    <div class="dashboard">
-      <div class="dash-header">
-        <div class="site-selector">
-          <div class="site-dot">TT</div>
-          listing-team
-        </div>
-        <div class="nav-arrow">‹</div>
-        <div class="nav-arrow">›</div>
-        <div class="dropdown">Last 30 days <span style="font-size:10px;margin-left:4px">▾</span></div>
-        <div class="dropdown">Daily <span style="font-size:10px;margin-left:4px">▾</span></div>
-        <div class="refresh-btn">↻</div>
-      </div>
-
-      <div class="dash-body">
-        <!-- Chart -->
-        <div class="chart-container">
-          <div class="chart-title">SKU UPLOAD PROGRESS — COMPLETION %</div>
-          <canvas id="skuChart" style="width: 470px; height: 200px; max-height: 200px; display: block; box-sizing: border-box;" width="705" height="300"></canvas>
-        </div>
-        <!-- Cards -->
-        <div class="info-cards">
-          <div class="info-card lime">
-            <div class="info-card-title">Brand Onboarding</div>
-            <div class="info-card-body">Track each brand from initial upload to fully live — with real-time SKU counts and completion progress per lister.</div>
-          </div>
-          <div class="info-card green">
-            <div class="info-card-title">Team Performance</div>
-            <div class="info-card-body">See who's ahead, who needs support, and how your listing team is performing across all brands at a glance.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<hr class="section-divider">
 
 <!-- ── TRACKER ── -->
 <section class="tracker-section">
 
   <div class="stat-pills" id="stat-pills">
-    <div class="stat-pill"><span class="stat-pill-val">2</span><span class="stat-pill-lbl">Active Brands</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">6</span><span class="stat-pill-lbl">Active Brands</span></div>
     <div class="stat-pill"><span class="stat-pill-val">7</span><span class="stat-pill-lbl">Live</span></div>
-    <div class="stat-pill"><span class="stat-pill-val">17,491</span><span class="stat-pill-lbl">Total SKUs</span></div>
-    <div class="stat-pill"><span class="stat-pill-val" style="color:#C06820">59%</span><span class="stat-pill-lbl">Avg Sourcing</span></div>
-    <div class="stat-pill"><span class="stat-pill-val" style="color:#2D4A2D">57%</span><span class="stat-pill-lbl">Avg Listing</span></div>
-    <div class="stat-pill"><span class="stat-pill-val" style="color:#4A4A9A">49%</span><span class="stat-pill-lbl">Avg QA/QC</span></div>
-    <div class="stat-pill"><span class="stat-pill-val">55%</span><span class="stat-pill-lbl">Avg Overall</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">18,830</span><span class="stat-pill-lbl">Total SKUs</span></div>
+    <div class="stat-pill"><span class="stat-pill-val" style="color:#C06820">58%</span><span class="stat-pill-lbl">Avg Sourcing</span></div>
+    <div class="stat-pill"><span class="stat-pill-val" style="color:#2D4A2D">54%</span><span class="stat-pill-lbl">Avg Listing</span></div>
+    <div class="stat-pill"><span class="stat-pill-val" style="color:#4A4A9A">43%</span><span class="stat-pill-lbl">Avg QA/QC</span></div>
+    <div class="stat-pill"><span class="stat-pill-val">52%</span><span class="stat-pill-lbl">Avg Overall</span></div>
   </div>
 
   <div class="tabs">
@@ -697,8 +596,8 @@
         <input type="text" id="search-input" placeholder="Search brands, lister, category..." oninput="renderTable()">
       </div>
       <!-- Advanced Filters Row -->
-      <select id="filter-brand" onchange="renderTable()" style="padding:10px 12px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:8px;font-family:Inter,sans-serif;font-size:13px;font-weight:500;color:var(--primary-text);outline:none;cursor:pointer;min-width:130px"><option value="">All Brands</option><option value="Amerock">Amerock</option><option value="Ardex">Ardex</option><option value="Azur Grande(Tom Duffy)">Azur Grande(Tom Duffy)</option><option value="Bravada">Bravada</option><option value="Dowell">Dowell</option><option value="Floormuffler">Floormuffler</option><option value="Foundation (Tom Duffy)">Foundation (Tom Duffy)</option><option value="Hallmark">Hallmark</option><option value="MSI - new items">MSI - new items</option><option value="Nourison 1of2">Nourison 1of2</option><option value="Nourison 2of2">Nourison 2of2</option><option value="Otto Tile Vanities">Otto Tile Vanities</option><option value="Premier/Reserve Collection (under Big D)">Premier/Reserve Collection (under Big D)</option><option value="Premium Kitchen">Premium Kitchen</option><option value="QuickStep">QuickStep</option><option value="Stanton-Clearance">Stanton-Clearance</option><option value="Traxx">Traxx</option><option value="Versacore/Crescendo Collection (under Big D)">Versacore/Crescendo Collection (under Big D)</option></select>
-      <select id="filter-lister" onchange="renderTable()" style="padding:10px 12px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:8px;font-family:Inter,sans-serif;font-size:13px;font-weight:500;color:var(--primary-text);outline:none;cursor:pointer;min-width:130px"><option value="">All Listers</option><option value="Cza">Cza</option><option value="Irene">Irene</option><option value="Anna Mae">Anna Mae</option><option value="Emileen">Emileen</option><option value="Ezzie">Ezzie</option><option value="Jhen">Jhen</option><option value="Rose">Rose</option><option value="Geselle">Geselle</option><option value="Lovely">Lovely</option><option value="Maydee">Maydee</option></select>
+      <select id="filter-brand" onchange="renderTable()" style="padding:10px 12px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:8px;font-family:Inter,sans-serif;font-size:13px;font-weight:500;color:var(--primary-text);outline:none;cursor:pointer;min-width:130px"><option value="">All Brands</option><option value="Amerock">Amerock</option><option value="Ardex">Ardex</option><option value="Azur Grande(Tom Duffy)">Azur Grande(Tom Duffy)</option><option value="Bravada">Bravada</option><option value="Dowell">Dowell</option><option value="Floormuffler">Floormuffler</option><option value="Foundation (Tom Duffy)">Foundation (Tom Duffy)</option><option value="Hallmark">Hallmark</option><option value="Hartco Hardwood">Hartco Hardwood</option><option value="MSI - new items">MSI - new items</option><option value="Nourison 1of2">Nourison 1of2</option><option value="Nourison 2of2">Nourison 2of2</option><option value="Otto Tile Vanities">Otto Tile Vanities</option><option value="Parliament Floors">Parliament Floors</option><option value="Premier/Reserve Collection (under Big D)">Premier/Reserve Collection (under Big D)</option><option value="Premium Kitchen">Premium Kitchen</option><option value="QuickStep">QuickStep</option><option value="Stanton-Clearance">Stanton-Clearance</option><option value="Stanton-New Items">Stanton-New Items</option><option value="Traxx">Traxx</option><option value="Versacore/Crescendo Collection (under Big D)">Versacore/Crescendo Collection (under Big D)</option></select>
+      <select id="filter-lister" onchange="renderTable()" style="padding:10px 12px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:8px;font-family:Inter,sans-serif;font-size:13px;font-weight:500;color:var(--primary-text);outline:none;cursor:pointer;min-width:130px"><option value="">All Listers</option><option value="Cza">Cza</option><option value="Irene">Irene</option><option value="Anna Mae">Anna Mae</option><option value="Emileen">Emileen</option><option value="Ezzie">Ezzie</option><option value="Jhen">Jhen</option><option value="Rose">Rose</option><option value="Geselle">Geselle</option><option value="Lovely">Lovely</option><option value="Maydee">Maydee</option><option value="Tina">Tina</option><option value="Diane">Diane</option></select>
       <select id="filter-status-dd" onchange="renderTable()" style="padding:10px 12px;background:var(--input-bg);border:1px solid var(--input-border);border-radius:8px;font-family:Inter,sans-serif;font-size:13px;font-weight:500;color:var(--primary-text);outline:none;cursor:pointer;min-width:120px">
         <option value="">All Statuses</option>
         <option value="Active">Active</option>
@@ -1051,7 +950,7 @@
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Apr 1, 2026</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td>
-        <span class="dom-val dom-cool">10d</span>
+        <span class="dom-val dom-cool">11d</span>
         
       </td>
       <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
@@ -1083,9 +982,8 @@
       <td>
         <div class="brand-name">QuickStep</div>
         <div class="brand-cat">Laminates and Floor Accessories</div>
-        <div style="display:flex;align-items:flex-start;gap:4px;margin-top:4px;padding:4px 8px;background:rgba(180,180,180,0.12);border-radius:6px;border-left:3px solid #9A9A9A;max-width:200px">
-          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap;flex-shrink:0">⏸ Reason:</span>
-          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">Ezzie quited 4/4</span>
+        <div class="pause-badge">
+          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap">⏸ Reason: </span><span class="pause-badge-reason">Ezzie quited 4/4</span>
         </div>
       </td>
       <td>
@@ -1102,7 +1000,7 @@
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Mar 31, 2026</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td>
-        <span class="dom-val dom-cool">11d</span>
+        <span class="dom-val dom-cool">12d</span>
         
       </td>
       <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
@@ -1119,7 +1017,7 @@
   </div></td>
       <td>
         <div class="prog-wrap" style="min-width:90px">
-          <div class="prog-label" style="display:flex;align-items:center">60%<span style="font-size:10px;font-weight:700;color:#C04030;background:rgba(192,64,48,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▼-27%</span></div>
+          <div class="prog-label" style="display:flex;align-items:center">60%<span style="font-size:10px;color:var(--muted-text);margin-left:4px">─</span></div>
           <div class="prog-bg"><div class="prog-fill" style="width:60%;background:#E07830"></div></div>
         </div>
       </td>
@@ -1167,7 +1065,7 @@
   </div></td>
       <td>
         <div class="prog-wrap" style="min-width:90px">
-          <div class="prog-label" style="display:flex;align-items:center">100%<span style="font-size:10px;font-weight:700;color:#2D6A2D;background:rgba(45,106,45,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▲+38%</span></div>
+          <div class="prog-label" style="display:flex;align-items:center">100%<span style="font-size:10px;color:var(--muted-text);margin-left:4px">─</span></div>
           <div class="prog-bg"><div class="prog-fill" style="width:100%;background:#2D4A2D"></div></div>
         </div>
       </td>
@@ -1198,7 +1096,7 @@
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Nov 21, 2025</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td>
-        <span class="dom-val dom-hot">103d</span>
+        <span class="dom-val dom-hot">104d</span>
         
       </td>
       <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
@@ -1230,9 +1128,8 @@
       <td>
         <div class="brand-name">MSI - new items</div>
         <div class="brand-cat"></div>
-        <div style="display:flex;align-items:flex-start;gap:4px;margin-top:4px;padding:4px 8px;background:rgba(180,180,180,0.12);border-radius:6px;border-left:3px solid #9A9A9A;max-width:200px">
-          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap;flex-shrink:0">⏸ Reason:</span>
-          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">prioritized price update</span>
+        <div class="pause-badge">
+          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap">⏸ Reason: </span><span class="pause-badge-reason">prioritized price update</span>
         </div>
       </td>
       <td>
@@ -1249,7 +1146,7 @@
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Apr 7, 2026</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td>
-        <span class="dom-val dom-cool">3d</span>
+        <span class="dom-val dom-cool">4d</span>
         <div style="font-size:10px;color:#9A9A9A;margin-top:2px">⏸ 3d paused</div>
       </td>
       <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
@@ -1266,7 +1163,7 @@
   </div></td>
       <td>
         <div class="prog-wrap" style="min-width:90px">
-          <div class="prog-label" style="display:flex;align-items:center">17%<span style="font-size:10px;font-weight:700;color:#C04030;background:rgba(192,64,48,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▼-6%</span></div>
+          <div class="prog-label" style="display:flex;align-items:center">17%<span style="font-size:10px;color:var(--muted-text);margin-left:4px">─</span></div>
           <div class="prog-bg"><div class="prog-fill" style="width:17%;background:#C04030"></div></div>
         </div>
       </td>
@@ -1281,10 +1178,7 @@
       <td>
         <div class="brand-name">Foundation (Tom Duffy)</div>
         <div class="brand-cat">Hardwood Flooring</div>
-        <div style="display:flex;align-items:flex-start;gap:4px;margin-top:4px;padding:4px 8px;background:rgba(180,180,180,0.12);border-radius:6px;border-left:3px solid #9A9A9A;max-width:200px">
-          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap;flex-shrink:0">⏸ Reason:</span>
-          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">for confirmation w/ vendor if dropped;price update 1st</span>
-        </div>
+        
       </td>
       <td>
         <div style="display:flex;flex-direction:column;gap:4px">
@@ -1295,13 +1189,13 @@
         </div>
       </td>
       <td><span class="sku-val">54</span></td>
-      <td><span class="status s-paused"><span class="sdot"></span>Paused</span></td>
-      <td><span class="priority p-low">Low</span></td>
+      <td><span class="status s-active"><span class="sdot"></span>Active</span></td>
+      <td><span class="priority p-mid">Mid</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Apr 8, 2026</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td>
-        <span class="dom-val dom-cool">2d</span>
-        <div style="font-size:10px;color:#9A9A9A;margin-top:2px">⏸ 3d paused</div>
+        <span class="dom-val dom-cool">3d</span>
+        
       </td>
       <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
     <div style="font-size:11px;font-weight:700;color:#E07830;margin-bottom:3px">50%</div>
@@ -1332,9 +1226,8 @@
       <td>
         <div class="brand-name">Azur Grande(Tom Duffy)</div>
         <div class="brand-cat">Hardwood Flooring</div>
-        <div style="display:flex;align-items:flex-start;gap:4px;margin-top:4px;padding:4px 8px;background:rgba(180,180,180,0.12);border-radius:6px;border-left:3px solid #9A9A9A;max-width:200px">
-          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap;flex-shrink:0">⏸ Reason:</span>
-          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">dropped per vendor</span>
+        <div class="pause-badge">
+          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap">⏸ Reason: </span><span class="pause-badge-reason">dropped per vendor</span>
         </div>
       </td>
       <td>
@@ -1351,7 +1244,7 @@
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Apr 8, 2026</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td>
-        <span class="dom-val dom-cool">2d</span>
+        <span class="dom-val dom-cool">3d</span>
         <div style="font-size:10px;color:#9A9A9A;margin-top:2px">⏸ 3d paused</div>
       </td>
       <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
@@ -1368,7 +1261,7 @@
   </div></td>
       <td>
         <div class="prog-wrap" style="min-width:90px">
-          <div class="prog-label" style="display:flex;align-items:center">30%<span style="font-size:10px;font-weight:700;color:#C04030;background:rgba(192,64,48,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▼-20%</span></div>
+          <div class="prog-label" style="display:flex;align-items:center">30%<span style="font-size:10px;color:var(--muted-text);margin-left:4px">─</span></div>
           <div class="prog-bg"><div class="prog-fill" style="width:30%;background:#C04030"></div></div>
         </div>
       </td>
@@ -1442,21 +1335,21 @@
         </div>
       </td>
       <td><span class="sku-val">10</span></td>
-      <td><span class="status s-contract"><span class="sdot"></span>Onboarding</span></td>
-      <td><span class="priority p-low">Low</span></td>
+      <td><span class="status s-active"><span class="sdot"></span>Active</span></td>
+      <td><span class="priority p-mid">Mid</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Apr 14, 2026</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td>
-        <span class="dom-val dom-cool">1d</span>
+        <span class="dom-val dom-cool">2d</span>
         
       </td>
       <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+    <div style="font-size:11px;font-weight:700;color:#E07830;margin-bottom:3px">50%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:50%;background:#E07830"></div></div>
   </div></td>
       <td><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+    <div style="font-size:11px;font-weight:700;color:#E07830;margin-bottom:3px">70%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:70%;background:#E07830"></div></div>
   </div></td>
       <td><div style="min-width:70px">
     <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
@@ -1464,8 +1357,8 @@
   </div></td>
       <td>
         <div class="prog-wrap" style="min-width:90px">
-          <div class="prog-label" style="display:flex;align-items:center">0%<span style="font-size:10px;color:var(--muted-text);margin-left:4px">─</span></div>
-          <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+          <div class="prog-label" style="display:flex;align-items:center">40%<span style="font-size:10px;font-weight:700;color:#2D6A2D;background:rgba(45,106,45,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▲+40%</span></div>
+          <div class="prog-bg"><div class="prog-fill" style="width:40%;background:#C04030"></div></div>
         </div>
       </td>
       <td onclick="event.stopPropagation()">
@@ -1485,26 +1378,26 @@
         <div style="display:flex;flex-direction:column;gap:4px">
           <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
                 <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
-                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#3D4A3A;color:#fff">C</div><span style="font-size:11px;white-space:nowrap">Cza</span></div>
+                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#6A4A8A;color:#fff">T</div><span style="font-size:11px;white-space:nowrap">Tina</span></div>
               </div>
         </div>
       </td>
       <td><span class="sku-val">112</span></td>
-      <td><span class="status s-contract"><span class="sdot"></span>Onboarding</span></td>
+      <td><span class="status s-active"><span class="sdot"></span>Active</span></td>
       <td><span class="priority p-low">Low</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Apr 14, 2026</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td>
-        <span class="dom-val dom-cool">1d</span>
+        <span class="dom-val dom-cool">2d</span>
         
       </td>
       <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+    <div style="font-size:11px;font-weight:700;color:#E07830;margin-bottom:3px">50%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:50%;background:#E07830"></div></div>
   </div></td>
       <td><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">20%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:20%;background:#C04030"></div></div>
   </div></td>
       <td><div style="min-width:70px">
     <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
@@ -1512,8 +1405,8 @@
   </div></td>
       <td>
         <div class="prog-wrap" style="min-width:90px">
-          <div class="prog-label" style="display:flex;align-items:center">0%</div>
-          <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+          <div class="prog-label" style="display:flex;align-items:center">23%<span style="font-size:10px;font-weight:700;color:#2D6A2D;background:rgba(45,106,45,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▲+23%</span></div>
+          <div class="prog-bg"><div class="prog-fill" style="width:23%;background:#C04030"></div></div>
         </div>
       </td>
       <td onclick="event.stopPropagation()">
@@ -1533,26 +1426,26 @@
         <div style="display:flex;flex-direction:column;gap:4px">
           <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
                 <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
-                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#3D4A3A;color:#fff">C</div><span style="font-size:11px;white-space:nowrap">Cza</span></div>
+                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#8A4A6A;color:#fff">D</div><span style="font-size:11px;white-space:nowrap">Diane</span></div>
               </div>
         </div>
       </td>
       <td><span class="sku-val">140</span></td>
-      <td><span class="status s-contract"><span class="sdot"></span>Onboarding</span></td>
+      <td><span class="status s-active"><span class="sdot"></span>Active</span></td>
       <td><span class="priority p-low">Low</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Apr 14, 2026</span></td>
       <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
       <td>
-        <span class="dom-val dom-cool">1d</span>
+        <span class="dom-val dom-cool">2d</span>
         
       </td>
       <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+    <div style="font-size:11px;font-weight:700;color:#E07830;margin-bottom:3px">50%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:50%;background:#E07830"></div></div>
   </div></td>
       <td><div style="min-width:70px">
-    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
-    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">20%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:20%;background:#C04030"></div></div>
   </div></td>
       <td><div style="min-width:70px">
     <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
@@ -1560,8 +1453,8 @@
   </div></td>
       <td>
         <div class="prog-wrap" style="min-width:90px">
-          <div class="prog-label" style="display:flex;align-items:center">0%</div>
-          <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+          <div class="prog-label" style="display:flex;align-items:center">23%<span style="font-size:10px;font-weight:700;color:#2D6A2D;background:rgba(45,106,45,0.1);padding:1px 5px;border-radius:4px;margin-left:4px">▲+23%</span></div>
+          <div class="prog-bg"><div class="prog-fill" style="width:23%;background:#C04030"></div></div>
         </div>
       </td>
       <td onclick="event.stopPropagation()">
@@ -1666,6 +1559,156 @@
           <button class="act-btn del-btn" onclick="deleteListing(19)">Del</button>
         </div>
       </td>
+    </tr>
+    <tr onclick="openEditModal(20)">
+      <td>
+        <div class="brand-name">Parliament Floors</div>
+        <div class="brand-cat"></div>
+        <div class="pause-badge">
+          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap">⏸ Reason: </span><span class="pause-badge-reason">pending specs</span>
+        </div>
+      </td>
+      <td>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+                <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
+                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#A8C898;color:#2D2D2D">E</div><span style="font-size:11px;white-space:nowrap">Ezzie</span></div>
+              </div>
+        </div>
+      </td>
+      <td><span class="sku-val">878</span></td>
+      <td><span class="status s-paused"><span class="sdot"></span>Paused</span></td>
+      <td><span class="priority p-high">High</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Dec 23, 2025</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
+      <td>
+        <span class="dom-val dom-hot">82d</span>
+        
+      </td>
+      <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+  </div></td>
+      <td>
+        <div class="prog-wrap" style="min-width:90px">
+          <div class="prog-label" style="display:flex;align-items:center">0%</div>
+          <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+        </div>
+      </td>
+      <td onclick="event.stopPropagation()">
+        <div style="display:flex;gap:6px">
+          <button class="act-btn" onclick="openEditModal(20)">Edit</button>
+          <button class="act-btn del-btn" onclick="deleteListing(20)">Del</button>
+        </div>
+      </td>
+    </tr>
+    <tr onclick="openEditModal(21)">
+      <td>
+        <div class="brand-name">Hartco Hardwood</div>
+        <div class="brand-cat"></div>
+        <div class="pause-badge">
+          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap">⏸ Reason: </span><span class="pause-badge-reason">pending specs</span>
+        </div>
+      </td>
+      <td>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+                <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
+                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#A8C898;color:#2D2D2D">E</div><span style="font-size:11px;white-space:nowrap">Ezzie</span></div>
+              </div>
+        </div>
+      </td>
+      <td><span class="sku-val">42</span></td>
+      <td><span class="status s-paused"><span class="sdot"></span>Paused</span></td>
+      <td><span class="priority p-high">High</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Feb 3, 2026</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
+      <td>
+        <span class="dom-val dom-warm">52d</span>
+        
+      </td>
+      <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+  </div></td>
+      <td>
+        <div class="prog-wrap" style="min-width:90px">
+          <div class="prog-label" style="display:flex;align-items:center">0%</div>
+          <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+        </div>
+      </td>
+      <td onclick="event.stopPropagation()">
+        <div style="display:flex;gap:6px">
+          <button class="act-btn" onclick="openEditModal(21)">Edit</button>
+          <button class="act-btn del-btn" onclick="deleteListing(21)">Del</button>
+        </div>
+      </td>
+    </tr>
+    <tr onclick="openEditModal(22)">
+      <td>
+        <div class="brand-name">Stanton-New Items</div>
+        <div class="brand-cat"></div>
+        <div class="pause-badge">
+          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap">⏸ Reason: </span><span class="pause-badge-reason">pending spec</span>
+        </div>
+      </td>
+      <td>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+                <div style="display:flex;gap:2px;flex-shrink:0"><span style="font-size:9px;font-weight:700;color:#C06820;background:#C0682018;padding:1px 5px;border-radius:3px">SRC</span><span style="font-size:9px;font-weight:700;color:#2D4A2D;background:#2D4A2D18;padding:1px 5px;border-radius:3px">LST</span><span style="font-size:9px;font-weight:700;color:#4A4A9A;background:#4A4A9A18;padding:1px 5px;border-radius:3px">QA</span></div>
+                <div style="display:flex;align-items:center;gap:3px"><div class="av" style="background:#A8C898;color:#2D2D2D">E</div><span style="font-size:11px;white-space:nowrap">Ezzie</span></div>
+              </div>
+        </div>
+      </td>
+      <td><span class="sku-val">419</span></td>
+      <td><span class="status s-paused"><span class="sdot"></span>Paused</span></td>
+      <td><span class="priority p-mid">Mid</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">Mar 13, 2026</span></td>
+      <td><span style="font-size:12px;color:var(--secondary-text);white-space:nowrap">—</span></td>
+      <td>
+        <span class="dom-val dom-warm">24d</span>
+        
+      </td>
+      <td style="border-left:1px solid var(--border-light)"><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+  </div></td>
+      <td><div style="min-width:70px">
+    <div style="font-size:11px;font-weight:700;color:#C04030;margin-bottom:3px">0%</div>
+    <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+  </div></td>
+      <td>
+        <div class="prog-wrap" style="min-width:90px">
+          <div class="prog-label" style="display:flex;align-items:center">0%</div>
+          <div class="prog-bg"><div class="prog-fill" style="width:0%;background:#C04030"></div></div>
+        </div>
+      </td>
+      <td onclick="event.stopPropagation()">
+        <div style="display:flex;gap:6px">
+          <button class="act-btn" onclick="openEditModal(22)">Edit</button>
+          <button class="act-btn del-btn" onclick="deleteListing(22)">Del</button>
+        </div>
+      </td>
     </tr></tbody>
       </table>
     </div>
@@ -1673,126 +1716,136 @@
       <div class="exp-hist-title">Export History</div>
       <div class="exp-log" id="export-log">
         <div class="no-exp" id="no-exp-msg" style="display: none;">No exports yet — click "Export XLSX" to generate your first report.</div>
-      <div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_012821.xlsx</div><div class="exp-ts">Exported: 2026-04-14 01:28:21</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_011332.xlsx</div><div class="exp-ts">Exported: 2026-04-14 01:13:32</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_011142.xlsx</div><div class="exp-ts">Exported: 2026-04-14 01:11:42</div></div><div class="exp-count">17 brands · 0 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_010600.xlsx</div><div class="exp-ts">Exported: 2026-04-14 01:06:00</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_004010.xlsx</div><div class="exp-ts">Exported: 2026-04-14 00:40:10</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_000254.xlsx</div><div class="exp-ts">Exported: 2026-04-14 00:02:54</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-13_202425.xlsx</div><div class="exp-ts">Exported: 2026-04-13 20:24:25</div></div><div class="exp-count">15 brands · 16,909 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-13_181427.xlsx</div><div class="exp-ts">Exported: 2026-04-13 18:14:27</div></div><div class="exp-count">15 brands · 16,909 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-09_090727.xlsx</div><div class="exp-ts">Exported: 2026-04-09 09:07:27</div></div><div class="exp-count">15 brands · 16,909 SKUs</div></div></div>
+      <div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-15_023347.xlsx</div><div class="exp-ts">Exported: 2026-04-15 02:33:47</div></div><div class="exp-count">19 brands · 17,491 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_012821.xlsx</div><div class="exp-ts">Exported: 2026-04-14 01:28:21</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_011332.xlsx</div><div class="exp-ts">Exported: 2026-04-14 01:13:32</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_011142.xlsx</div><div class="exp-ts">Exported: 2026-04-14 01:11:42</div></div><div class="exp-count">17 brands · 0 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_010600.xlsx</div><div class="exp-ts">Exported: 2026-04-14 01:06:00</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_004010.xlsx</div><div class="exp-ts">Exported: 2026-04-14 00:40:10</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-14_000254.xlsx</div><div class="exp-ts">Exported: 2026-04-14 00:02:54</div></div><div class="exp-count">17 brands · 17,161 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-13_202425.xlsx</div><div class="exp-ts">Exported: 2026-04-13 20:24:25</div></div><div class="exp-count">15 brands · 16,909 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-13_181427.xlsx</div><div class="exp-ts">Exported: 2026-04-13 18:14:27</div></div><div class="exp-count">15 brands · 16,909 SKUs</div></div><div class="exp-item"><div><div class="exp-name">📄 TaskTrack_2026-04-09_090727.xlsx</div><div class="exp-ts">Exported: 2026-04-09 09:07:27</div></div><div class="exp-count">15 brands · 16,909 SKUs</div></div></div>
     </div>
   </div>
 
   <!-- PIPELINE -->
   <div class="view" id="view-kanban">
     <div class="kanban" id="kanban-board"><div class="kcol">
-      <div class="kcol-head"><span class="kcol-title">ACTIVE</span><span class="kcol-cnt">2</span></div>
+      <div class="kcol-head"><span class="kcol-title">ACTIVE</span><span class="kcol-cnt">6</span></div>
       <div class="kcol-cards">
-        
-          <div class="kcard" onclick="openEditModal(7)">
+        <div class="kcard" onclick="openEditModal(7)">
             <div class="kcard-name">Dowell</div>
             <div class="kcard-sku">1,000 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Rose</span><span class="dom-val dom-cool" style="font-size:11px">8d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(10)">
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Rose</span><span class="dom-val dom-cool" style="font-size:11px">11d</span></div>
+            
+          </div><div class="kcard" onclick="openEditModal(10)">
             <div class="kcard-name">Otto Tile Vanities</div>
             <div class="kcard-sku">1,101 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Geselle</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Geselle</span><span class="dom-val dom-hot" style="font-size:11px">104d</span></div>
+            
+          </div><div class="kcard" onclick="openEditModal(12)">
+            <div class="kcard-name">Foundation (Tom Duffy)</div>
+            <div class="kcard-sku">54 SKUs</div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Anna Mae</span><span class="dom-val dom-cool" style="font-size:11px">3d</span></div>
+            
+          </div><div class="kcard" onclick="openEditModal(15)">
+            <div class="kcard-name">Floormuffler</div>
+            <div class="kcard-sku">10 SKUs</div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Irene</span><span class="dom-val dom-cool" style="font-size:11px">2d</span></div>
+            
+          </div><div class="kcard" onclick="openEditModal(16)">
+            <div class="kcard-name">Premier/Reserve Collection (under Big D)</div>
+            <div class="kcard-sku">112 SKUs</div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Tina</span><span class="dom-val dom-cool" style="font-size:11px">2d</span></div>
+            
+          </div><div class="kcard" onclick="openEditModal(17)">
+            <div class="kcard-name">Versacore/Crescendo Collection (under Big D)</div>
+            <div class="kcard-sku">140 SKUs</div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Diane</span><span class="dom-val dom-cool" style="font-size:11px">2d</span></div>
+            
           </div>
       </div></div><div class="kcol">
       <div class="kcol-head"><span class="kcol-title">PENDING</span><span class="kcol-cnt">2</span></div>
       <div class="kcol-cards">
-        
-          <div class="kcard" onclick="openEditModal(18)">
+        <div class="kcard" onclick="openEditModal(18)">
             <div class="kcard-name">Traxx</div>
             <div class="kcard-sku">80 SKUs</div>
             <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Irene</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(19)">
+            
+          </div><div class="kcard" onclick="openEditModal(19)">
             <div class="kcard-name">Ardex</div>
             <div class="kcard-sku">250 SKUs</div>
             <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Rose</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
+            
           </div>
       </div></div><div class="kcol">
-      <div class="kcol-head"><span class="kcol-title">ONBOARDING</span><span class="kcol-cnt">4</span></div>
+      <div class="kcol-head"><span class="kcol-title">ONBOARDING</span><span class="kcol-cnt">1</span></div>
       <div class="kcol-cards">
-        
-          <div class="kcard" onclick="openEditModal(14)">
+        <div class="kcard" onclick="openEditModal(14)">
             <div class="kcard-name">Premium Kitchen</div>
             <div class="kcard-sku">600 SKUs</div>
             <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Rose, Cza</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(15)">
-            <div class="kcard-name">Floormuffler</div>
-            <div class="kcard-sku">10 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Irene</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(16)">
-            <div class="kcard-name">Premier/Reserve Collection (under Big D)</div>
-            <div class="kcard-sku">112 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Cza</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(17)">
-            <div class="kcard-name">Versacore/Crescendo Collection (under Big D)</div>
-            <div class="kcard-sku">140 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Cza</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
+            
           </div>
       </div></div><div class="kcol">
       <div class="kcol-head"><span class="kcol-title">LIVE</span><span class="kcol-cnt">7</span></div>
       <div class="kcol-cards">
-        
-          <div class="kcard" onclick="openEditModal(1)">
+        <div class="kcard" onclick="openEditModal(1)">
             <div class="kcard-name">Amerock</div>
             <div class="kcard-sku">3,230 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Emileen</span><span class="dom-val dom-cool" style="font-size:11px">5d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(2)">
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Emileen</span><span class="dom-val dom-cool" style="font-size:11px">12d</span></div>
+            
+          </div><div class="kcard" onclick="openEditModal(2)">
             <div class="kcard-name">Amerock</div>
             <div class="kcard-sku">3,429 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Rose</span><span class="dom-val dom-cool" style="font-size:11px">5d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(3)">
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Rose</span><span class="dom-val dom-cool" style="font-size:11px">12d</span></div>
+            
+          </div><div class="kcard" onclick="openEditModal(3)">
             <div class="kcard-name">Stanton-Clearance</div>
             <div class="kcard-sku">500 SKUs</div>
             <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Irene</span><span class="dom-val dom-cool" style="font-size:11px">5d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(4)">
+            
+          </div><div class="kcard" onclick="openEditModal(4)">
             <div class="kcard-name">Hallmark</div>
             <div class="kcard-sku">834 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Anna Mae</span><span class="dom-val dom-cool" style="font-size:11px">4d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(5)">
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Anna Mae</span><span class="dom-val dom-warm" style="font-size:11px">19d</span></div>
+            
+          </div><div class="kcard" onclick="openEditModal(5)">
             <div class="kcard-name">Nourison 1of2</div>
             <div class="kcard-sku">2,777 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Irene</span><span class="dom-val dom-cool" style="font-size:11px">7d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(6)">
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Irene</span><span class="dom-val dom-cool" style="font-size:11px">5d</span></div>
+            
+          </div><div class="kcard" onclick="openEditModal(6)">
             <div class="kcard-name">Bravada</div>
             <div class="kcard-sku">426 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Anna Mae</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(9)">
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Anna Mae</span><span class="dom-val dom-cool" style="font-size:11px">5d</span></div>
+            
+          </div><div class="kcard" onclick="openEditModal(9)">
             <div class="kcard-name">Nourison 2of2</div>
             <div class="kcard-sku">1,700 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Irene</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Irene</span><span class="dom-val dom-cool" style="font-size:11px">5d</span></div>
+            
           </div>
       </div></div><div class="kcol">
-      <div class="kcol-head"><span class="kcol-title">PAUSED</span><span class="kcol-cnt">4</span></div>
+      <div class="kcol-head"><span class="kcol-title">PAUSED</span><span class="kcol-cnt">5</span></div>
       <div class="kcol-cards">
-        
-          <div class="kcard" onclick="openEditModal(8)">
+        <div class="kcard" onclick="openEditModal(8)">
             <div class="kcard-name">QuickStep</div>
             <div class="kcard-sku">200 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Ezzie</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(11)">
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Ezzie</span><span class="dom-val dom-cool" style="font-size:11px">12d</span></div>
+            <div style="font-size:10px;color:#9A9A9A;margin-top:4px;padding:2px 6px;background:rgba(180,180,180,0.12);border-radius:4px;border-left:2px solid #9A9A9A;white-space:normal;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">⏸ Ezzie quited 4/4</div>
+          </div><div class="kcard" onclick="openEditModal(11)">
             <div class="kcard-name">MSI - new items</div>
             <div class="kcard-sku">1,000 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Anna Mae</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(12)">
-            <div class="kcard-name">Foundation (Tom Duffy)</div>
-            <div class="kcard-sku">54 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Anna Mae</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
-          </div>
-          <div class="kcard" onclick="openEditModal(13)">
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Anna Mae</span><span class="dom-val dom-cool" style="font-size:11px">4d</span></div>
+            <div style="font-size:10px;color:#9A9A9A;margin-top:4px;padding:2px 6px;background:rgba(180,180,180,0.12);border-radius:4px;border-left:2px solid #9A9A9A;white-space:normal;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">⏸ prioritized price update</div>
+          </div><div class="kcard" onclick="openEditModal(13)">
             <div class="kcard-name">Azur Grande(Tom Duffy)</div>
             <div class="kcard-sku">48 SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Anna Mae</span><span class="dom-val dom-cool" style="font-size:11px">0d</span></div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Anna Mae</span><span class="dom-val dom-cool" style="font-size:11px">3d</span></div>
+            <div style="font-size:10px;color:#9A9A9A;margin-top:4px;padding:2px 6px;background:rgba(180,180,180,0.12);border-radius:4px;border-left:2px solid #9A9A9A;white-space:normal;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">⏸ dropped per vendor</div>
+          </div><div class="kcard" onclick="openEditModal(20)">
+            <div class="kcard-name">Parliament Floors</div>
+            <div class="kcard-sku">878 SKUs</div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Ezzie</span><span class="dom-val dom-hot" style="font-size:11px">82d</span></div>
+            <div style="font-size:10px;color:#9A9A9A;margin-top:4px;padding:2px 6px;background:rgba(180,180,180,0.12);border-radius:4px;border-left:2px solid #9A9A9A;white-space:normal;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">⏸ pending specs</div>
+          </div><div class="kcard" onclick="openEditModal(21)">
+            <div class="kcard-name">Hartco Hardwood</div>
+            <div class="kcard-sku">42 SKUs</div>
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">Ezzie</span><span class="dom-val dom-warm" style="font-size:11px">52d</span></div>
+            <div style="font-size:10px;color:#9A9A9A;margin-top:4px;padding:2px 6px;background:rgba(180,180,180,0.12);border-radius:4px;border-left:2px solid #9A9A9A;white-space:normal;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">⏸ pending specs</div>
           </div>
       </div></div></div>
   </div>
@@ -2055,11 +2108,11 @@
           <option value="Under Contract">Onboarding</option><option value="Sold">Live</option><option value="Expired">Paused</option>
         </select>
       </div>
-      <div class="fg full" id="pause-reason-wrap" style="">
+      <div class="fg full" id="pause-reason-wrap" style="display: none;">
         <label>Pause Reason</label>
         <input type="text" id="f-pauseReason" placeholder="e.g. Waiting for vendor images, Client requested hold...">
       </div>
-      <div class="fg" id="paused-days-wrap" style="">
+      <div class="fg" id="paused-days-wrap" style="display: none;">
         <label>Days Paused (excluded from count)</label>
         <input type="number" id="f-pausedDays" placeholder="0" min="0" value="0">
       </div>
@@ -2099,10 +2152,10 @@
       <div style="width:22px;height:22px;border-radius:50%;background:#5A6A4A;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">I</div>
       <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Irene</span>
       
-    </label><label data-name="Anna Mae" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid #C06820;background:rgba(192,104,32,0.12);transition:all 0.15s" onclick="toggleRole(&#39;sourcing&#39;,&#39;Anna Mae&#39;)">
+    </label><label data-name="Anna Mae" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid var(--border-light);background:#fff;transition:all 0.15s" onclick="toggleRole(&#39;sourcing&#39;,&#39;Anna Mae&#39;)">
       <div style="width:22px;height:22px;border-radius:50%;background:#2D4A2D;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">AM</div>
-      <span style="font-size:12px;font-weight:700;color:#C06820;white-space:nowrap">Anna Mae</span>
-      <span style="width:14px;height:14px;border-radius:50%;background:#C06820;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0">✓</span>
+      <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Anna Mae</span>
+      
     </label><label data-name="Emileen" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid var(--border-light);background:#fff;transition:all 0.15s" onclick="toggleRole(&#39;sourcing&#39;,&#39;Emileen&#39;)">
       <div style="width:22px;height:22px;border-radius:50%;background:#E07830;color:#2D2D2D;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">E</div>
       <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Emileen</span>
@@ -2131,6 +2184,14 @@
       <div style="width:22px;height:22px;border-radius:50%;background:#6A7A5A;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">M</div>
       <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Maydee</span>
       
+    </label><label data-name="Tina" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid var(--border-light);background:#fff;transition:all 0.15s" onclick="toggleRole(&#39;sourcing&#39;,&#39;Tina&#39;)">
+      <div style="width:22px;height:22px;border-radius:50%;background:#6A4A8A;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">T</div>
+      <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Tina</span>
+      
+    </label><label data-name="Diane" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid #C06820;background:rgba(192,104,32,0.12);transition:all 0.15s" onclick="toggleRole(&#39;sourcing&#39;,&#39;Diane&#39;)">
+      <div style="width:22px;height:22px;border-radius:50%;background:#8A4A6A;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">D</div>
+      <span style="font-size:12px;font-weight:700;color:#C06820;white-space:nowrap">Diane</span>
+      <span style="width:14px;height:14px;border-radius:50%;background:#C06820;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0">✓</span>
     </label></div>
             </div>
           </div>
@@ -2158,10 +2219,10 @@
       <div style="width:22px;height:22px;border-radius:50%;background:#5A6A4A;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">I</div>
       <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Irene</span>
       
-    </label><label data-name="Anna Mae" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid #2D4A2D;background:rgba(45,74,45,0.1);transition:all 0.15s" onclick="toggleRole(&#39;listing&#39;,&#39;Anna Mae&#39;)">
+    </label><label data-name="Anna Mae" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid var(--border-light);background:#fff;transition:all 0.15s" onclick="toggleRole(&#39;listing&#39;,&#39;Anna Mae&#39;)">
       <div style="width:22px;height:22px;border-radius:50%;background:#2D4A2D;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">AM</div>
-      <span style="font-size:12px;font-weight:700;color:#2D4A2D;white-space:nowrap">Anna Mae</span>
-      <span style="width:14px;height:14px;border-radius:50%;background:#2D4A2D;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0">✓</span>
+      <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Anna Mae</span>
+      
     </label><label data-name="Emileen" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid var(--border-light);background:#fff;transition:all 0.15s" onclick="toggleRole(&#39;listing&#39;,&#39;Emileen&#39;)">
       <div style="width:22px;height:22px;border-radius:50%;background:#E07830;color:#2D2D2D;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">E</div>
       <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Emileen</span>
@@ -2190,6 +2251,14 @@
       <div style="width:22px;height:22px;border-radius:50%;background:#6A7A5A;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">M</div>
       <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Maydee</span>
       
+    </label><label data-name="Tina" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid var(--border-light);background:#fff;transition:all 0.15s" onclick="toggleRole(&#39;listing&#39;,&#39;Tina&#39;)">
+      <div style="width:22px;height:22px;border-radius:50%;background:#6A4A8A;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">T</div>
+      <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Tina</span>
+      
+    </label><label data-name="Diane" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid #2D4A2D;background:rgba(45,74,45,0.1);transition:all 0.15s" onclick="toggleRole(&#39;listing&#39;,&#39;Diane&#39;)">
+      <div style="width:22px;height:22px;border-radius:50%;background:#8A4A6A;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">D</div>
+      <span style="font-size:12px;font-weight:700;color:#2D4A2D;white-space:nowrap">Diane</span>
+      <span style="width:14px;height:14px;border-radius:50%;background:#2D4A2D;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0">✓</span>
     </label></div>
             </div>
           </div>
@@ -2217,10 +2286,10 @@
       <div style="width:22px;height:22px;border-radius:50%;background:#5A6A4A;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">I</div>
       <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Irene</span>
       
-    </label><label data-name="Anna Mae" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid #4A4A9A;background:rgba(74,74,154,0.1);transition:all 0.15s" onclick="toggleRole(&#39;qaqc&#39;,&#39;Anna Mae&#39;)">
+    </label><label data-name="Anna Mae" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid var(--border-light);background:#fff;transition:all 0.15s" onclick="toggleRole(&#39;qaqc&#39;,&#39;Anna Mae&#39;)">
       <div style="width:22px;height:22px;border-radius:50%;background:#2D4A2D;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">AM</div>
-      <span style="font-size:12px;font-weight:700;color:#4A4A9A;white-space:nowrap">Anna Mae</span>
-      <span style="width:14px;height:14px;border-radius:50%;background:#4A4A9A;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0">✓</span>
+      <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Anna Mae</span>
+      
     </label><label data-name="Emileen" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid var(--border-light);background:#fff;transition:all 0.15s" onclick="toggleRole(&#39;qaqc&#39;,&#39;Emileen&#39;)">
       <div style="width:22px;height:22px;border-radius:50%;background:#E07830;color:#2D2D2D;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">E</div>
       <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Emileen</span>
@@ -2249,12 +2318,20 @@
       <div style="width:22px;height:22px;border-radius:50%;background:#6A7A5A;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">M</div>
       <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Maydee</span>
       
+    </label><label data-name="Tina" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid var(--border-light);background:#fff;transition:all 0.15s" onclick="toggleRole(&#39;qaqc&#39;,&#39;Tina&#39;)">
+      <div style="width:22px;height:22px;border-radius:50%;background:#6A4A8A;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">T</div>
+      <span style="font-size:12px;font-weight:500;color:var(--secondary-text);white-space:nowrap">Tina</span>
+      
+    </label><label data-name="Diane" style="display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:20px;cursor:pointer;border:1.5px solid #4A4A9A;background:rgba(74,74,154,0.1);transition:all 0.15s" onclick="toggleRole(&#39;qaqc&#39;,&#39;Diane&#39;)">
+      <div style="width:22px;height:22px;border-radius:50%;background:#8A4A6A;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">D</div>
+      <span style="font-size:12px;font-weight:700;color:#4A4A9A;white-space:nowrap">Diane</span>
+      <span style="width:14px;height:14px;border-radius:50%;background:#4A4A9A;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0">✓</span>
     </label></div>
             </div>
           </div>
 
         </div>
-        <div id="modal-overall" style="margin-top:12px;font-size:12px;color:var(--muted-text);padding:8px 12px;background:var(--input-bg);border-radius:7px">Overall: <b style="color:#C04030">49%</b> <span style="color:var(--muted-text)">· Sourcing 50% · Listing 49% · QA/QC 49%</span></div>
+        <div id="modal-overall" style="margin-top:12px;font-size:12px;color:var(--muted-text);padding:8px 12px;background:var(--input-bg);border-radius:7px">Overall: <b style="color:#C04030">23%</b> <span style="color:var(--muted-text)">· Sourcing 50% · Listing 20% · QA/QC 0%</span></div>
       </div>
 
       <div class="fg full"><label>Notes</label><textarea id="f-notes" placeholder="Any additional notes..."></textarea></div>
@@ -2264,7 +2341,7 @@
       <button class="btn-s" onclick="saveListing()">Save Brand</button>
     </div>
   </div>
-<input type="hidden" id="f-role-sourcing" value="[&quot;Anna Mae&quot;]"><input type="hidden" id="f-role-listing" value="[&quot;Anna Mae&quot;]"><input type="hidden" id="f-role-qaqc" value="[&quot;Anna Mae&quot;]"></div>
+<input type="hidden" id="f-role-sourcing" value="[&quot;Diane&quot;]"><input type="hidden" id="f-role-listing" value="[&quot;Diane&quot;]"><input type="hidden" id="f-role-qaqc" value="[&quot;Diane&quot;]"></div>
 
 <!-- ── PIN OVERLAY ── -->
 <div class="pin-overlay" id="pin-overlay">
@@ -2496,8 +2573,8 @@ if (localStorage.getItem('tasktrack_data_version') !== DATA_VERSION) {
   localStorage.setItem('tasktrack_data_version', DATA_VERSION);
 }
 
-const LISTERS = ['Cza','Irene','Anna Mae','Emileen','Ezzie','Jhen','Rose','Geselle','Lovely','Maydee'];
-const COLORS = ['#3D4A3A','#5A6A4A','#2D4A2D','#E07830','#A8C898','#7A8A6A','#C06820','#4A6A4A','#8A9A7A','#6A7A5A'];
+const LISTERS = ['Cza','Irene','Anna Mae','Emileen','Ezzie','Jhen','Rose','Geselle','Lovely','Maydee','Tina','Diane'];
+const COLORS  = ['#3D4A3A','#5A6A4A','#2D4A2D','#E07830','#A8C898','#7A8A6A','#C06820','#4A6A4A','#8A9A7A','#6A7A5A','#6A4A8A','#8A4A6A'];
 const LC = {};
 LISTERS.forEach((n,i) => LC[n] = COLORS[i]);
 
@@ -3070,9 +3147,8 @@ function renderTable(){
 
     // Pause reason badge
     const pauseBadge = (l.status==='Expired' && l.pauseReason)
-      ? `<div style="display:flex;align-items:flex-start;gap:4px;margin-top:4px;padding:4px 8px;background:rgba(180,180,180,0.12);border-radius:6px;border-left:3px solid #9A9A9A;max-width:200px">
-          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap;flex-shrink:0">⏸ Reason:</span>
-          <span style="font-size:10px;color:#6B6B6B;line-height:1.4">${l.pauseReason}</span>
+      ? `<div class="pause-badge">
+          <span style="font-size:10px;font-weight:700;color:#9A9A9A;white-space:nowrap">⏸ Reason: </span><span class="pause-badge-reason">${l.pauseReason}</span>
         </div>` : '';
 
     return `
@@ -3148,12 +3224,17 @@ function renderKanban(){
     return`<div class="kcol">
       <div class="kcol-head"><span class="kcol-title">${sLabel(s).toUpperCase()}</span><span class="kcol-cnt">${cards.length}</span></div>
       <div class="kcol-cards">
-        ${cards.length?cards.map(l=>`
-          <div class="kcard" onclick="openEditModal(${l.id})">
+        ${cards.length?cards.map(l=>{
+          const bizDays = countBusinessDays(l.startDate, l.endDate, l.pausedDays||0);
+          const agents = [...(Array.isArray(l.agentSourcing)?l.agentSourcing:[l.agentSourcing||'']), ...(Array.isArray(l.agentListing)?l.agentListing:[l.agentListing||'']), ...(Array.isArray(l.agentQaqc)?l.agentQaqc:[l.agentQaqc||''])].filter((v,i,a)=>v&&a.indexOf(v)===i).join(', ');
+          const pauseNote = (l.status==='Expired' && l.pauseReason) ? `<div style="font-size:10px;color:#9A9A9A;margin-top:4px;padding:2px 6px;background:rgba(180,180,180,0.12);border-radius:4px;border-left:2px solid #9A9A9A;white-space:normal;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">⏸ ${l.pauseReason}</div>` : '';
+          return `<div class="kcard" onclick="openEditModal(${l.id})">
             <div class="kcard-name">${l.name}</div>
             <div class="kcard-sku">${l.skus.toLocaleString()} SKUs</div>
-            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">${[...(Array.isArray(l.agentSourcing)?l.agentSourcing:[l.agentSourcing||'']), ...(Array.isArray(l.agentListing)?l.agentListing:[l.agentListing||'']), ...(Array.isArray(l.agentQaqc)?l.agentQaqc:[l.agentQaqc||''])].filter((v,i,a)=>v&&a.indexOf(v)===i).join(', ')}</span><span class="dom-val ${dClass(l.dom)}" style="font-size:11px">${l.dom}d</span></div>
-          </div>`).join(''):'<div style="text-align:center;padding:16px;font-size:12px;color:var(--muted-text)">No brands</div>'}
+            <div class="kcard-meta"><span class="kcard-agent" style="font-size:10px">${agents}</span><span class="dom-val ${dClass(bizDays)}" style="font-size:11px">${bizDays}d</span></div>
+            ${pauseNote}
+          </div>`;
+        }).join(''):'<div style="text-align:center;padding:16px;font-size:12px;color:var(--muted-text)">No brands</div>'}
       </div></div>`;
   }).join('');
 }
@@ -3308,6 +3389,34 @@ function renderExportHistory(){
     d.className='exp-item';
     d.innerHTML=`<div><div class="exp-name">📄 ${e.filename}</div><div class="exp-ts">Exported: ${e.timestamp}</div></div><div class="exp-count">${e.count} brands · ${e.skus.toLocaleString()} SKUs</div>`;
     log.appendChild(d);
+  });
+}
+
+function downloadScreenshot(){
+  const target = document.querySelector('.tracker-section') || document.body;
+  if (typeof html2canvas === 'undefined') {
+    showToast('⚠ Screenshot library not loaded yet — try again in a moment');
+    return;
+  }
+  showToast('📷 Capturing screenshot…');
+  html2canvas(target, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: '#ffffff',
+    logging: false,
+    windowWidth: document.documentElement.scrollWidth,
+    windowHeight: document.documentElement.scrollHeight
+  }).then(canvas => {
+    const now = new Date();
+    const pad = n => String(n).padStart(2,'0');
+    const fn = `TaskTrack_Screenshot_${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}.png`;
+    const link = document.createElement('a');
+    link.download = fn;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    showToast(`✓ Screenshot saved: ${fn}`);
+  }).catch(err => {
+    showToast('⚠ Screenshot failed: ' + err.message);
   });
 }
 
@@ -3555,42 +3664,13 @@ async function deleteListing(id){
 
 renderTable();
 renderExportHistory();
+renderKanban();
 autoSnapshot(); // record today's state on load
 showSetupBanner();
 // If connected, reload from Sheets on startup
 if(isConnected()) initFromSheets();
 
 // Init hero chart (line chart in browser preview)
-(function initHeroChart(){
-  const canvas = document.getElementById('skuChart');
-  if(!canvas) return;
-  new Chart(canvas, {
-    type: 'line',
-    data: {
-      labels: listings.map(l=>l.name),
-      datasets: [{
-        label: 'Completion %',
-        data: listings.map(l=>overall(l)),
-        borderColor: '#2D4A2D',
-        backgroundColor: 'rgba(168,200,152,0.35)',
-        fill: true,
-        tension: 0.4,
-        pointBackgroundColor: '#2D4A2D',
-        pointRadius: 4,
-        borderWidth: 2.5,
-      }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y}% complete` } } },
-      scales: {
-        x: { display: false },
-        y: { display: false, min: 0, max: 100 }
-      }
-    }
-  });
-})();
 </script>
-
 
 <div id="thunderbit-crx-side-bar" style="display:block;opacity:1;pointer-events:all;top:0;right:0;z-index:9007199254740991;position:fixed;pointer-events:none;user-select:none;"><template shadowrootmode="open"><div id="#react-app-root"><div id="#react-app-slot" style="display:flex"></div></div></template></div><button id="open-side-panel" style="width:0;height:0;opacity:0;user-select:none;pointer-events:all;position:absolute;bottom:0;right:0;padding:0;border:0;outline:none;"></button></body></html>
